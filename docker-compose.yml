@@ -1,0 +1,21 @@
+version: "3"
+services:
+    tailscale:
+        hostname: tailscale
+        image: ghcr.io/tailscale/tailscale
+        volumes:
+          - "./tailscale_var_lib:/var/lib"
+          - "/dev/net/tun:/dev/net/tun"
+        cap_add:
+          - net_admin
+          - sys_module
+        command: tailscaled
+
+#<- Votre container ->
+    ubuntu-container:
+        image: ubuntu:latest
+        network_mode: service:tailscale
+        command: /bin/bash
+        stdin_open: true 
+        tty: true
+#<- Votre container ->
