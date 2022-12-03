@@ -16,6 +16,6 @@ services:
         image: ubuntu:latest
         network_mode: service:tailscale
         command: /bin/bash
-        stdin_open: true 
-        tty: true 
+        stdin_open: true
+        tty: true
 #<- Votre container ->
