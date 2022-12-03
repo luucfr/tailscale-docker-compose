@@ -17,5 +17,5 @@ services:
         network_mode: service:tailscale
         command: /bin/bash
         stdin_open: true 
-        tty: true
+        tty: true 
 #<- Votre container ->
